@@ -21,6 +21,14 @@ export default {
   components: {
     MultiSplitPane,
     Pane
+  },
+  methods: {
+    onPaneCollapsed(index) {
+      console.log('onPaneCollapsed', index)
+    },
+    onPaneExpanded(index) {
+      console.log('onPaneExpanded', index)
+    }
   }
 }
 ```
@@ -55,7 +63,7 @@ export default {
 ## Props
 
 | Prop    | Description                   |  type  | required | default |
-| ------- | ----------------------------- | :----: | :------: | :-----: |
+| :------ | :---------------------------- | :----: | :------: | :-----: |
 | width   | width of the MultiSplitPane   | String |  false   |  100%   |
 | height  | height of the MultiSplitPane  | String |   true   |  none   |
 | classes | classes of the MultiSplitPane | String |  false   |  none   |
@@ -63,7 +71,7 @@ export default {
 ## Events
 
 | Event                  | Description                                                               |
-| ---------------------- | ------------------------------------------------------------------------- |
+| :--------------------- | :------------------------------------------------------------------------ |
 | onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on Multi MultiSplitPane |
 | onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on Multi MultiSplitPane  |
 
