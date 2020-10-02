@@ -1,6 +1,10 @@
 <template>
   <div>
-    <MultiSplitPane height="400px">
+    <MultiSplitPane
+      height="400px"
+      @onPaneCollapsed="onPaneCollapsed"
+      @onPaneExpanded="onPaneExpanded"
+    >
       <Pane>
         <template v-slot:content>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
@@ -58,6 +62,14 @@ export default {
   components: {
     MultiSplitPane,
     Pane
+  },
+  methods: {
+    onPaneCollapsed(index) {
+      console.log('onPaneCollapsed', index)
+    },
+    onPaneExpanded(index) {
+      console.log('onPaneExpanded', index)
+    }
   }
 }
 </script>

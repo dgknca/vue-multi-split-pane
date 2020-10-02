@@ -26,7 +26,11 @@ export default {
 ```
 
 ```html
-<MultiSplitPane height="400px">
+<MultiSplitPane
+  height="400px"
+  @onPaneCollapsed="onPaneCollapsed"
+  @onPaneExpanded="onPaneExpanded"
+>
   <Pane>
     <template v-slot:content>
       Content 1
@@ -55,3 +59,15 @@ export default {
 | width   | width of the MultiSplitPane   | String |  false   |  100%   |
 | height  | height of the MultiSplitPane  | String |   true   |  none   |
 | classes | classes of the MultiSplitPane | String |  false   |  none   |
+
+## Events
+
+| Event                  | Description                                                               |
+| ---------------------- | ------------------------------------------------------------------------- |
+| onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on Multi MultiSplitPane |
+| onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on Multi MultiSplitPane  |
+
+## TODO
+
+- Touch support
+- Horizontal split

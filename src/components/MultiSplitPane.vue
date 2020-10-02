@@ -18,7 +18,8 @@ export default {
       panes: [],
       resizers: [],
       fracs: [],
-      pos: []
+      pos: [],
+      collapsedPanes: []
     }
   },
   methods: {
@@ -65,7 +66,6 @@ export default {
         )
       })
     },
-
     initPos() {
       this.pos = []
       let cumulative = 0
@@ -75,7 +75,6 @@ export default {
         cumulative += this.fracs[i]
       }
     },
-
     updatePos(resizerI, newPos) {
       if (newPos < this.pos[resizerI]) {
         for (let i = resizerI - 1; i >= 0; i--) {
@@ -114,14 +113,23 @@ export default {
       this.panes.forEach((pane, i) => {
         let iFrac = this.fracs[i]
 
-        if (iFrac === 0) pane.classList.add('collapsed')
-        else pane.classList.remove('collapsed')
+        if (iFrac === 0 && this.collapsedPanes[i] !== 1) {
+          pane.classList.add('collapsed')
+          this.collapsedPanes[i] = 1
+          this.$emit('onPaneCollapsed', i)
+        } else if (iFrac !== 0 && this.collapsedPanes[i] === 1) {
+          pane.classList.remove('collapsed')
+          this.collapsedPanes[i] = 0
+          this.$emit('onPaneExpanded', i)
+        }
 
         pane.setAttribute('style', getStyleStr(iFrac))
       })
     }
   },
   mounted() {
+    this.collapsedPanes.fill(0, 0, this.$slots.default.length)
+
     this.root = this.$refs.resizable
 
     // Looking for panes (direct children of root element)
