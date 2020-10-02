@@ -1,24 +1,53 @@
-# vue-multi-split-pane
+# Vue Multi Split Pane
 
-## Project setup
-```
-npm install
-```
+A component based on Vue.js. Provides unlimited multi pane support. Only provides horizontal split for now.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+### Install
+
+```bash
+npm i vue-multi-split-pane
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+### Example
+
+```js
+import { MultiSplitPane, Pane } from 'vue-multi-split-pane'
+
+export default {
+  components: {
+    MultiSplitPane,
+    Pane
+  }
+}
 ```
 
-### Lints and fixes files
-```
-npm run lint
+```html
+<MultiSplitPane height="400px">
+  <Pane>
+    <template v-slot:content>
+      Content 1
+    </template>
+  </Pane>
+  <Pane>
+    <template v-slot:resizer>
+      You can send resizer slot also.
+    </template>
+    <template v-slot:content>
+      Content 2
+    </template>
+  </Pane>
+  <Pane>
+    <template v-slot:content>
+      Content 3
+    </template>
+  </Pane>
+</MultiSplitPane>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Props
+
+| Prop    | Description                   |  type  | required | default |
+| ------- | ----------------------------- | :----: | :------: | :-----: |
+| width   | width of the MultiSplitPane   | String |  false   |  100%   |
+| height  | height of the MultiSplitPane  | String |   true   |  none   |
+| classes | classes of the MultiSplitPane | String |  false   |  none   |
