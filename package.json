@@ -1,6 +1,6 @@
 {
   "name": "vue-multi-split-pane",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Doğukan Çavuş",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,9 @@
     "prettier": "^1.19.1",
     "vue-template-compiler": "^2.6.11"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dgknca/vue-multi-split-pane.git"
+  }
 }
