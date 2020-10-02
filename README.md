@@ -2,6 +2,10 @@
 
 A component based on Vue.js. Provides unlimited multi pane support. Only provides horizontal split for now.
 
+## Demo
+
+[Live Demo](https://vue-multi-split-pane.vercel.app/)
+
 ### Install
 
 ```bash
