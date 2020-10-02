@@ -70,10 +70,10 @@ export default {
 
 ## Events
 
-| Event                  | Description                                                               |
-| :--------------------- | :------------------------------------------------------------------------ |
-| onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on Multi MultiSplitPane |
-| onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on Multi MultiSplitPane  |
+| Event                  | Description                                                         |
+| :--------------------- | :------------------------------------------------------------------ |
+| onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
+| onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
 
 ## TODO
 
