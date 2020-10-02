@@ -1,6 +1,6 @@
 # Vue Multi Split Pane
 
-A component based on Vue.js. Provides unlimited multi pane support. Only provides horizontal split for now.
+A component based on Vue.js. Provides unlimited multi pane support. Only provides vertical split for now.
 
 ## Demo
 
