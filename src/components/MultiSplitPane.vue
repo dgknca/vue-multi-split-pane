@@ -2,7 +2,7 @@
   <div
     ref="resizable"
     data-resizable="data-resizable"
-    :style="{ height: height, width: width }"
+    :style="{ height: height, width: width, display: display }"
     :class="[classes]"
   >
     <slot></slot>
@@ -11,7 +11,12 @@
 <script>
 export default {
   name: 'MultiSplitPane',
-  props: ['height', 'width', 'classes'],
+  props: {
+    height: { type: String, required: true },
+    width: { type: String },
+    classes: { type: String },
+    split: { type: String, default: 'vertical' }
+  },
   data() {
     return {
       root: null,
@@ -19,7 +24,8 @@ export default {
       resizers: [],
       fracs: [],
       pos: [],
-      collapsedPanes: []
+      collapsedPanes: [],
+      display: null
     }
   },
   methods: {
@@ -28,14 +34,32 @@ export default {
       this.initPos()
       this.applyFracs()
     },
-    getTop() {
-      return this.root.getBoundingClientRect().top
+    getDistance(orientation) {
+      let rect
+      if (orientation == 'horizontal') {
+        rect = this.root.getBoundingClientRect().left
+      } else {
+        rect = this.root.getBoundingClientRect().top
+      }
+      return rect
     },
-    getHeight() {
-      return this.root.clientHeight
+    getDimension(orientation) {
+      let dim
+      if (orientation == 'horizontal') {
+        dim = this.root.clientWidth
+      } else {
+        dim = this.root.clientHeight
+      }
+      return dim
     },
-    getResizerHeight() {
-      return this.resizers[0].offsetHeight
+    getResizerDimension(orientation) {
+      let dim
+      if (orientation == 'horizontal') {
+        dim = this.resizers[0].offsetWidth
+      } else {
+        dim = this.resizers[0].offsetHeight
+      }
+      return dim
     },
     addDragLogic(i, resizer) {
       if (i === 0) return // The first pane size can not be changed!
@@ -45,15 +69,24 @@ export default {
 
         if (eDown.type == 'touchstart') eDown = eDown.touches[0]
 
-        let shiftY = eDown.clientY - resizer.getBoundingClientRect().top
+        let shift
+
+        this.split == 'horizontal'
+          ? (shift = eDown.clientX - resizer.getBoundingClientRect().left)
+          : (shift = eDown.clientY - resizer.getBoundingClientRect().top)
 
         let onMouseMove = eMove => {
           if (eMove.type == 'touchmove') eMove = eMove.touches[0]
+          let coor = this.split == 'horizontal' ? eMove.pageX : eMove.pageY
 
           let numerator =
-            eMove.pageY - shiftY - this.getTop() - this.getResizerHeight() * i
+            coor -
+            shift -
+            this.getDistance(this.split) -
+            this.getResizerDimension(this.split) * i
           let nominator =
-            this.getHeight() - this.getResizerHeight() * this.panes.length
+            this.getDimension(this.split) -
+            this.getResizerDimension(this.split) * this.panes.length
 
           let newPos = numerator / nominator
 
@@ -81,6 +114,12 @@ export default {
     initPos() {
       this.pos = []
       let cumulative = 0
+
+      this.panes.forEach(pane => {
+        this.split == 'horizontal'
+          ? pane.classList.add('horizontal')
+          : pane.classList.add('vertical')
+      })
 
       for (let i = 0; i < this.fracs.length; i++) {
         this.pos.push(cumulative)
@@ -116,9 +155,13 @@ export default {
     },
     applyFracs() {
       let getStyleStr = frac => {
+        let dim = this.split == 'horizontal' ? 'width' : 'height'
+
         return `
-              height: calc((100% - ${this.panes.length *
-                this.getResizerHeight()}px) * ${frac} + ${this.getResizerHeight()}px);
+              ${dim}: calc((100% - ${this.panes.length *
+          this.getResizerDimension(
+            this.split
+          )}px) * ${frac} + ${this.getResizerDimension(this.split)}px);
             `
       }
 
@@ -140,6 +183,10 @@ export default {
     }
   },
   mounted() {
+    this.split === 'horizontal'
+      ? (this.display = 'flex')
+      : (this.display = 'block')
+
     this.collapsedPanes.fill(0, 0, this.$slots.default.length)
 
     this.root = this.$refs.resizable

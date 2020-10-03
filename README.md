@@ -1,6 +1,6 @@
 # Vue Multi Split Pane
 
-A component based on Vue.js. Provides unlimited multi pane support. Only provides vertical split for now.
+A component based on Vue.js. Provides unlimited resizable multi pane support. Only provides vertical split for now.
 
 ## Demo
 
@@ -35,6 +35,7 @@ export default {
 
 ```html
 <MultiSplitPane
+  split="horizontal"
   height="400px"
   @onPaneCollapsed="onPaneCollapsed"
   @onPaneExpanded="onPaneExpanded"
@@ -62,11 +63,12 @@ export default {
 
 ## Props
 
-| Prop    | Description                   |  type  | required | default |
-| :------ | :---------------------------- | :----: | :------: | :-----: |
-| width   | width of the MultiSplitPane   | String |  false   |  100%   |
-| height  | height of the MultiSplitPane  | String |   true   |  none   |
-| classes | classes of the MultiSplitPane | String |  false   |  none   |
+| Prop    | Description                       |        value         | default  |
+| :------ | :-------------------------------- | :------------------: | :------: |
+| split   | orientation of the MultiSplitPane | vertical, horizontal | vertical |
+| width   | width of the MultiSplitPane       |        String        |   100%   |
+| height  | height of the MultiSplitPane      |        String        |   auto   |
+| classes | classes of the MultiSplitPane     |        String        |   none   |
 
 ## Events
 
@@ -74,7 +76,3 @@ export default {
 | :--------------------- | :------------------------------------------------------------------ |
 | onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
 | onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
-
-## TODO
-
-- Horizontal split

@@ -1,7 +1,9 @@
 <template>
   <div class="pane">
     <div class="resizer" data-resizer="data-resizer">
-      <slot name="resizer"></slot>
+      <div class="resizer-content">
+        <slot name="resizer"></slot>
+      </div>
     </div>
     <div class="content">
       <div class="innerContent">
@@ -24,21 +26,37 @@ export default {
 .pane {
   position: relative;
   display: flex;
+}
+.pane.vertical {
   flex-direction: column;
 }
 .pane .resizer {
   display: flex;
   align-items: center;
-  padding: 10px;
-  height: 30px;
+  justify-content: center;
+  color: #e0e0e0;
+}
+.pane.vertical .resizer {
   background: linear-gradient(#696c74, #696c74) 50% calc(50% - 3px) / 35px 2px
       no-repeat,
     linear-gradient(#696c74, #696c74) 50% calc(50% + 3px) / 35px 2px no-repeat,
     #36393f;
   border-top: 1px solid #4a4c52;
   border-bottom: 1px solid #202125;
+  height: 30px;
+  width: 100%;
   cursor: row-resize;
-  color: #e0e0e0;
+}
+.pane.horizontal .resizer {
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(#696c74, #696c74) calc(50% - 3px) 50% / 2px 35px
+      no-repeat,
+    linear-gradient(#696c74, #696c74) calc(50% + 3px) 50% / 2px 35px no-repeat,
+    #36393f;
+  border-left: 1px solid #4a4c52;
+  border-right: 1px solid #202125;
+  cursor: col-resize;
 }
 .pane:first-of-type .resizer {
   cursor: auto;

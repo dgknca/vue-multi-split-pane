@@ -1,6 +1,6 @@
 {
   "name": "vue-multi-split-pane",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "author": "Doğukan Çavuş",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,10 @@
   "keywords": [
     "vue",
     "vue.js",
-    "vue component"
+    "vue component",
+    "vue split",
+    "vue resizer",
+    "vue resize"
   ],
   "dependencies": {
     "core-js": "^3.6.5",
