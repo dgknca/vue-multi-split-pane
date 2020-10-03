@@ -40,11 +40,16 @@ export default {
     addDragLogic(i, resizer) {
       if (i === 0) return // The first pane size can not be changed!
 
-      resizer.addEventListener('mousedown', eDown => {
+      let eDownFunc = eDown => {
         eDown.preventDefault()
+
+        if (eDown.type == 'touchstart') eDown = eDown.touches[0]
+
         let shiftY = eDown.clientY - resizer.getBoundingClientRect().top
 
         let onMouseMove = eMove => {
+          if (eMove.type == 'touchmove') eMove = eMove.touches[0]
+
           let numerator =
             eMove.pageY - shiftY - this.getTop() - this.getResizerHeight() * i
           let nominator =
@@ -64,7 +69,14 @@ export default {
         window.addEventListener('mouseup', () =>
           window.removeEventListener('mousemove', onMouseMove)
         )
-      })
+
+        window.addEventListener('touchmove', onMouseMove)
+        window.addEventListener('touchend', () =>
+          window.removeEventListener('touchmove', onMouseMove)
+        )
+      }
+      resizer.addEventListener('mousedown', eDownFunc)
+      resizer.addEventListener('touchstart', eDownFunc)
     },
     initPos() {
       this.pos = []

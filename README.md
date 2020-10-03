@@ -77,5 +77,4 @@ export default {
 
 ## TODO
 
-- Touch support
 - Horizontal split

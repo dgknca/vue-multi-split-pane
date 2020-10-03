@@ -1,6 +1,6 @@
 {
   "name": "vue-multi-split-pane",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Doğukan Çavuş",
   "main": "index.js",
   "scripts": {
