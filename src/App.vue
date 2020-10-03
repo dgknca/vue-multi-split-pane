@@ -107,6 +107,12 @@ body {
   padding: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  #app {
+    padding: 0;
+  }
+}
+
 .v-pane-custom .v-pane .content {
   background: #fff;
 }

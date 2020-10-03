@@ -2,7 +2,7 @@
   <div
     ref="resizable"
     data-resizable="data-resizable"
-    :style="{ height: height, width: width, display: display }"
+    :style="{ height: height, 'max-width': width, display: display }"
     :class="[classes]"
   >
     <slot></slot>
@@ -217,5 +217,6 @@ export default {
 [data-resizable] {
   overflow: auto;
   border: 1px solid #e0e0e0;
+  width: 100%;
 }
 </style>
