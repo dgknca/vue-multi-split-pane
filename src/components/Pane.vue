@@ -1,6 +1,6 @@
 <template>
-  <div class="pane">
-    <div class="resizer" data-resizer="data-resizer">
+  <div class="v-pane">
+    <div class="v-resizer" data-resizer="data-resizer">
       <slot name="resizer"></slot>
     </div>
     <div class="content">
@@ -21,62 +21,55 @@ export default {
 * {
   box-sizing: border-box;
 }
-.pane {
+.v-pane {
   position: relative;
   display: flex;
 }
-.pane.vertical {
+.v-pane.vertical {
   flex-direction: column;
 }
-.pane .resizer {
+.v-pane .v-resizer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e0e0e0;
+  background-color: #616161;
 }
-.pane.vertical .resizer {
-  background: linear-gradient(#696c74, #696c74) 50% calc(50% - 3px) / 35px 2px
+.v-pane.vertical .v-resizer {
+  width: 100% !important;
+  cursor: row-resize;
+  background: linear-gradient(#9d9d9d, #9d9d9d) 50% calc(50% - 4px) / 40px 3px
       no-repeat,
-    linear-gradient(#696c74, #696c74) 50% calc(50% + 3px) / 35px 2px no-repeat,
-    #36393f;
+    linear-gradient(#9d9d9d, #9d9d9d) 50% calc(50% + 4px) / 40px 3px no-repeat,
+    #616161;
   border-top: 1px solid #4a4c52;
   border-bottom: 1px solid #202125;
-  width: 100% !important;
-  /* height: 30px; */
-  cursor: row-resize;
 }
-.pane.horizontal .resizer {
+.v-pane.horizontal .v-resizer {
   height: 100% !important;
-  /* width: 30px; */
-  background: linear-gradient(#696c74, #696c74) calc(50% - 3px) 50% / 2px 35px
+  cursor: col-resize;
+  background: linear-gradient(#9d9d9d, #9d9d9d) calc(50% - 4px) 50% / 3px 40px
       no-repeat,
-    linear-gradient(#696c74, #696c74) calc(50% + 3px) 50% / 2px 35px no-repeat,
-    #36393f;
+    linear-gradient(#9d9d9d, #9d9d9d) calc(50% + 4px) 50% / 3px 40px no-repeat,
+    #616161;
   border-left: 1px solid #4a4c52;
   border-right: 1px solid #202125;
-  cursor: col-resize;
 }
-.pane:first-of-type .resizer {
+.v-pane:first-of-type .v-resizer {
   cursor: auto;
-  background: #36393f;
+  background: #616161;
 }
-.pane.collapsed .resizer {
+.v-pane.collapsed .v-resizer {
   background: repeating-linear-gradient(
-    45deg,
-    #54565c,
-    #54565c 10px,
-    #444549 10px,
-    #444549 20px
-  );
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.2) 10px,
+      rgba(0, 0, 0, 0.2) 20px
+    ),
+    #616161;
 }
-.pane .content {
+.v-pane .content {
   flex: 1;
   overflow: auto;
-}
-.pane .content .innerContent {
-  padding: 10px;
-}
-.pane .content {
-  background: #c5c5c5;
 }
 </style>

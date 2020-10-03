@@ -37,19 +37,21 @@ export default {
 <MultiSplitPane
   split="horizontal"
   height="400px"
+  width="1000px"
   resizerWidth="30px"
+  classes="v-pane-custom"
   @onPaneCollapsed="onPaneCollapsed"
   @onPaneExpanded="onPaneExpanded"
 >
   <Pane>
+    <template v-slot:resizer>
+      resizer slot
+    </template>
     <template v-slot:content>
       Content 1
     </template>
   </Pane>
   <Pane>
-    <template v-slot:resizer>
-      You can send resizer slot also.
-    </template>
     <template v-slot:content>
       Content 2
     </template>

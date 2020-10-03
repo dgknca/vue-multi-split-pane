@@ -112,10 +112,10 @@ export default {
 
       this.panes.forEach(pane => {
         if (this.split == 'horizontal') {
-          pane.querySelector('.resizer').style.width = this.resizerWidth
+          pane.querySelector('.v-resizer').style.width = this.resizerWidth
           pane.classList.add('horizontal')
         } else {
-          pane.querySelector('.resizer').style.height = this.resizerWidth
+          pane.querySelector('.v-resizer').style.height = this.resizerWidth
           pane.classList.add('vertical')
         }
       })
