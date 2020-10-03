@@ -13,9 +13,10 @@ export default {
   name: 'MultiSplitPane',
   props: {
     height: { type: String, required: true },
-    width: { type: String },
+    width: { type: String, default: '100%' },
     classes: { type: String },
-    split: { type: String, default: 'vertical' }
+    split: { type: String, default: 'vertical' },
+    resizerWidth: { type: String, default: '30px' }
   },
   data() {
     return {
@@ -35,31 +36,25 @@ export default {
       this.applyFracs()
     },
     getDistance(orientation) {
-      let rect
       if (orientation == 'horizontal') {
-        rect = this.root.getBoundingClientRect().left
+        return this.root.getBoundingClientRect().left
       } else {
-        rect = this.root.getBoundingClientRect().top
+        return this.root.getBoundingClientRect().top
       }
-      return rect
     },
     getDimension(orientation) {
-      let dim
       if (orientation == 'horizontal') {
-        dim = this.root.clientWidth
+        return this.root.clientWidth
       } else {
-        dim = this.root.clientHeight
+        return this.root.clientHeight
       }
-      return dim
     },
     getResizerDimension(orientation) {
-      let dim
       if (orientation == 'horizontal') {
-        dim = this.resizers[0].offsetWidth
+        return this.resizers[0].offsetWidth
       } else {
-        dim = this.resizers[0].offsetHeight
+        return this.resizers[0].offsetHeight
       }
-      return dim
     },
     addDragLogic(i, resizer) {
       if (i === 0) return // The first pane size can not be changed!
@@ -116,9 +111,13 @@ export default {
       let cumulative = 0
 
       this.panes.forEach(pane => {
-        this.split == 'horizontal'
-          ? pane.classList.add('horizontal')
-          : pane.classList.add('vertical')
+        if (this.split == 'horizontal') {
+          pane.querySelector('.resizer').style.width = this.resizerWidth
+          pane.classList.add('horizontal')
+        } else {
+          pane.querySelector('.resizer').style.height = this.resizerWidth
+          pane.classList.add('vertical')
+        }
       })
 
       for (let i = 0; i < this.fracs.length; i++) {
@@ -167,7 +166,6 @@ export default {
 
       this.panes.forEach((pane, i) => {
         let iFrac = this.fracs[i]
-
         if (iFrac === 0 && this.collapsedPanes[i] !== 1) {
           pane.classList.add('collapsed')
           this.collapsedPanes[i] = 1

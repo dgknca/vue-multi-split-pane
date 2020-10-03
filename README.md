@@ -37,6 +37,7 @@ export default {
 <MultiSplitPane
   split="horizontal"
   height="400px"
+  resizerWidth="30px"
   @onPaneCollapsed="onPaneCollapsed"
   @onPaneExpanded="onPaneExpanded"
 >
@@ -63,12 +64,13 @@ export default {
 
 ## Props
 
-| Prop    | Description                       |        value         | default  |
-| :------ | :-------------------------------- | :------------------: | :------: |
-| split   | orientation of the MultiSplitPane | vertical, horizontal | vertical |
-| width   | width of the MultiSplitPane       |        String        |   100%   |
-| height  | height of the MultiSplitPane      |        String        |   auto   |
-| classes | classes of the MultiSplitPane     |        String        |   none   |
+| Prop         | Description                                                                  |        value         | default  |
+| :----------- | :--------------------------------------------------------------------------- | :------------------: | :------: |
+| split        | orientation of the MultiSplitPane                                            | vertical, horizontal | vertical |
+| width        | width of the MultiSplitPane                                                  |        String        |   100%   |
+| height       | height of the MultiSplitPane                                                 |        String        |   auto   |
+| resizerWidth | width/height of the resizers. valid for horizontal and vertical orientation. |        String        |   30px   |
+| classes      | classes of the MultiSplitPane                                                |        String        |   none   |
 
 ## Events
 

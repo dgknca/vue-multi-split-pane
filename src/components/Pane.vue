@@ -1,9 +1,7 @@
 <template>
   <div class="pane">
     <div class="resizer" data-resizer="data-resizer">
-      <div class="resizer-content">
-        <slot name="resizer"></slot>
-      </div>
+      <slot name="resizer"></slot>
     </div>
     <div class="content">
       <div class="innerContent">
@@ -43,13 +41,13 @@ export default {
     #36393f;
   border-top: 1px solid #4a4c52;
   border-bottom: 1px solid #202125;
-  height: 30px;
-  width: 100%;
+  width: 100% !important;
+  /* height: 30px; */
   cursor: row-resize;
 }
 .pane.horizontal .resizer {
-  width: 30px;
-  height: 100%;
+  height: 100% !important;
+  /* width: 30px; */
   background: linear-gradient(#696c74, #696c74) calc(50% - 3px) 50% / 2px 35px
       no-repeat,
     linear-gradient(#696c74, #696c74) calc(50% + 3px) 50% / 2px 35px no-repeat,

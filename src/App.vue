@@ -3,6 +3,7 @@
     <MultiSplitPane
       split="horizontal"
       height="400px"
+      resizerWidth="20px"
       @onPaneCollapsed="onPaneCollapsed"
       @onPaneExpanded="onPaneExpanded"
     >
