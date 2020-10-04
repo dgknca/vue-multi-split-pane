@@ -4,9 +4,11 @@ A component based on Vue.js. Provides unlimited resizable multi pane support.
 
 ## Demo
 
-[Live Demo](https://vue-multi-split-pane.vercel.app/) | [Codesandbox.io](https://codesandbox.io/s/vue-multi-split-pane-7noiu?file=/src/App.vue)
+[Live Demo](https://vue-multi-split-pane.vercel.app/) | [Codesandbox](https://codesandbox.io/s/vue-multi-split-pane-7noiu?file=/src/App.vue)
 
 ### Install
+
+<a href="https://nodei.co/npm/vue-multi-split-pane/"><img src="https://nodei.co/npm/vue-multi-split-pane.png"></a>
 
 ```bash
 npm i vue-multi-split-pane
