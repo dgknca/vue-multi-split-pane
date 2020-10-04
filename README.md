@@ -64,15 +64,64 @@ export default {
 </MultiSplitPane>
 ```
 
+### Nested Pane Example
+
+```html
+<MultiSplitPane
+  split="horizontal"
+  height="400px"
+  width="1000px"
+  resizerWidth="30px"
+  :nested="true"
+  classes="v-pane-custom"
+>
+  <Pane>
+    <template v-slot:content>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+      excepturi in dolores accusantium praesentium quidem laborum neque ut ipsum
+      veritatis ratione rem, esse totam voluptates ullam nesciunt tempora
+      architecto laudantium!
+    </template>
+  </Pane>
+  <Pane classes="paneNested">
+    <template v-slot:content>
+      <MultiSplitPane
+        height="400px"
+        resizerWidth="30px"
+        classes="v-pane-custom"
+      >
+        <Pane>
+          <template v-slot:content>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Consectetur, excepturi in dolores accusantium praesentium quidem
+            laborum neque ut ipsum veritatis ratione rem, esse totam voluptates
+            ullam nesciunt tempora architecto laudantium!
+          </template>
+        </Pane>
+        <Pane>
+          <template v-slot:content>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Consectetur, excepturi in dolores accusantium praesentium quidem
+            laborum neque ut ipsum veritatis ratione rem, esse totam voluptates
+            ullam nesciunt tempora architecto laudantium!
+          </template>
+        </Pane>
+      </MultiSplitPane>
+    </template>
+  </Pane>
+</MultiSplitPane>
+```
+
 ## Props
 
 | Prop         | Description                                                                  |        value         | default  |
 | :----------- | :--------------------------------------------------------------------------- | :------------------: | :------: |
-| split        | orientation of the MultiSplitPane                                            | vertical, horizontal | vertical |
-| width        | width of the MultiSplitPane                                                  |        String        |   100%   |
-| height       | height of the MultiSplitPane                                                 |        String        |   auto   |
-| resizerWidth | width/height of the resizers. valid for horizontal and vertical orientation. |        String        |   30px   |
-| classes      | classes of the MultiSplitPane                                                |        String        |   none   |
+| split        | Orientation of the MultiSplitPane                                            | vertical, horizontal | vertical |
+| width        | Width of the MultiSplitPane                                                  |        String        |   100%   |
+| height       | Height of the MultiSplitPane                                                 |        String        |   auto   |
+| resizerWidth | Width/height of the resizers. Valid for horizontal and vertical orientation. |        String        |   30px   |
+| classes      | Custom class prop. Can be send to MultiSplitPane or Pane                     |        String        |   none   |
+| :nested      | Will you use nested MultiSplitPane? Then should be true.                     |       Boolean        |  false   |
 
 ## Events
 
@@ -80,7 +129,3 @@ export default {
 | :--------------------- | :------------------------------------------------------------------ |
 | onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
 | onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
-
-### Notes
-
-Doesn't support nested split.

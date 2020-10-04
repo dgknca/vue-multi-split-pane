@@ -69,6 +69,52 @@
         </template>
       </Pane>
     </MultiSplitPane>
+
+    <div style="margin-top:50px"></div>
+
+    <MultiSplitPane
+      split="horizontal"
+      height="400px"
+      width="1000px"
+      resizerWidth="30px"
+      :nested="true"
+      classes="v-pane-custom"
+    >
+      <Pane>
+        <template v-slot:content>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          excepturi in dolores accusantium praesentium quidem laborum neque ut
+          ipsum veritatis ratione rem, esse totam voluptates ullam nesciunt
+          tempora architecto laudantium!
+        </template>
+      </Pane>
+      <Pane classes="paneNested">
+        <template v-slot:content>
+          <MultiSplitPane
+            height="400px"
+            resizerWidth="30px"
+            classes="v-pane-custom"
+          >
+            <Pane>
+              <template v-slot:content>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur, excepturi in dolores accusantium praesentium quidem
+                laborum neque ut ipsum veritatis ratione rem, esse totam
+                voluptates ullam nesciunt tempora architecto laudantium!
+              </template>
+            </Pane>
+            <Pane>
+              <template v-slot:content>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur, excepturi in dolores accusantium praesentium quidem
+                laborum neque ut ipsum veritatis ratione rem, esse totam
+                voluptates ullam nesciunt tempora architecto laudantium!
+              </template>
+            </Pane>
+          </MultiSplitPane>
+        </template>
+      </Pane>
+    </MultiSplitPane>
   </div>
 </template>
 
@@ -119,5 +165,9 @@ body {
 .v-pane-custom .content .innerContent {
   padding: 20px;
   line-height: 1.5;
+}
+
+.paneNested > .content > .innerContent {
+  padding: 0;
 }
 </style>

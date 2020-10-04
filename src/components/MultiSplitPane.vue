@@ -3,7 +3,7 @@
     ref="resizable"
     data-resizable="data-resizable"
     :style="{ height: height, 'max-width': width, display: display }"
-    :class="[classes]"
+    :class="[classes, { nested: nested }]"
   >
     <slot></slot>
   </div>
@@ -16,7 +16,8 @@ export default {
     width: { type: String, default: '100%' },
     classes: { type: String },
     split: { type: String, default: 'vertical' },
-    resizerWidth: { type: String, default: '30px' }
+    resizerWidth: { type: String, default: '30px' },
+    nested: { type: Boolean, default: false }
   },
   data() {
     return {
@@ -190,12 +191,22 @@ export default {
     this.root = this.$refs.resizable
 
     // Looking for panes (direct children of root element)
-    this.panes = this.root.querySelectorAll('[data-resizable] > *')
+    console.log(this.root)
 
-    // Looking for resizers
-    this.resizers = this.root.querySelectorAll(
-      '[data-resizable] > .v-pane > [data-resizer]'
-    )
+    if (this.nested) {
+      this.panes = this.root.querySelectorAll(
+        '[data-resizable].nested > .v-pane'
+      )
+      // Looking for resizers
+      this.resizers = this.root.querySelectorAll(
+        '[data-resizable].nested > .v-pane > [data-resizer]'
+      )
+    } else {
+      this.panes = this.root.querySelectorAll('[data-resizable] > .v-pane')
+      this.resizers = this.root.querySelectorAll(
+        '[data-resizable] > .v-pane > [data-resizer]'
+      )
+    }
 
     // Calculating initial fracs and pos
     let initFrac = 1 / this.panes.length
@@ -216,7 +227,6 @@ export default {
 }
 [data-resizable] {
   overflow: auto;
-  border: 1px solid #e0e0e0;
   width: 100%;
 }
 </style>

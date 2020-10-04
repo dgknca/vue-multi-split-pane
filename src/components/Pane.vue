@@ -1,5 +1,5 @@
 <template>
-  <div class="v-pane">
+  <div class="v-pane" :class="classes">
     <div class="v-resizer" data-resizer="data-resizer">
       <slot name="resizer"></slot>
     </div>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  name: 'Pane'
+  name: 'Pane',
+  props: {
+    classes: {
+      type: String
+    }
+  }
 }
 </script>
 
@@ -34,8 +39,8 @@ export default {
   justify-content: center;
   background-color: #616161;
 }
-.v-pane.vertical .v-resizer {
-  width: 100% !important;
+.v-pane.vertical > .v-resizer {
+  width: 100%;
   cursor: row-resize;
   background: linear-gradient(#9d9d9d, #9d9d9d) 50% calc(50% - 4px) / 40px 3px
       no-repeat,
@@ -44,8 +49,8 @@ export default {
   border-top: 1px solid #4a4c52;
   border-bottom: 1px solid #202125;
 }
-.v-pane.horizontal .v-resizer {
-  height: 100% !important;
+.v-pane.horizontal > .v-resizer {
+  height: 100%;
   cursor: col-resize;
   background: linear-gradient(#9d9d9d, #9d9d9d) calc(50% - 4px) 50% / 3px 40px
       no-repeat,
