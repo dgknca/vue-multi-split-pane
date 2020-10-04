@@ -67,8 +67,8 @@ export default {
         let shift
 
         this.split == 'horizontal'
-          ? (shift = eDown.clientX - resizer.getBoundingClientRect().left)
-          : (shift = eDown.clientY - resizer.getBoundingClientRect().top)
+          ? (shift = eDown.pageX - resizer.getBoundingClientRect().left)
+          : (shift = eDown.pageY - resizer.getBoundingClientRect().top)
 
         let onMouseMove = eMove => {
           if (eMove.type == 'touchmove') eMove = eMove.touches[0]
@@ -194,7 +194,7 @@ export default {
 
     // Looking for resizers
     this.resizers = this.root.querySelectorAll(
-      '[data-resizable] [data-resizer]'
+      '[data-resizable] > .v-pane > [data-resizer]'
     )
 
     // Calculating initial fracs and pos
