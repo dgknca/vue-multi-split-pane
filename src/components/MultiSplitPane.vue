@@ -190,9 +190,6 @@ export default {
 
     this.root = this.$refs.resizable
 
-    // Looking for panes (direct children of root element)
-    console.log(this.root)
-
     if (this.nested) {
       this.panes = this.root.querySelectorAll(
         '[data-resizable].nested > .v-pane'
