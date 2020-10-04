@@ -79,6 +79,8 @@
       resizerWidth="30px"
       :nested="true"
       classes="v-pane-custom"
+      @onPaneCollapsed="onPaneCollapsed"
+      @onPaneExpanded="onPaneExpanded"
     >
       <Pane>
         <template v-slot:content>
@@ -94,6 +96,8 @@
             height="400px"
             resizerWidth="30px"
             classes="v-pane-custom"
+            @onPaneCollapsed="onPaneCollapsed"
+            @onPaneExpanded="onPaneExpanded"
           >
             <Pane>
               <template v-slot:content>
@@ -129,11 +133,15 @@ export default {
     Pane
   },
   methods: {
-    onPaneCollapsed(index) {
-      console.log('onPaneCollapsed', index)
+    onPaneCollapsed(paneIndex, paneClasses, containerClasses) {
+      console.log(
+        `${paneIndex}. pane collapsed. Pane class: '${paneClasses}' MultiSplitPane class: '${containerClasses}'`
+      )
     },
-    onPaneExpanded(index) {
-      console.log('onPaneExpanded', index)
+    onPaneExpanded(paneIndex, paneClasses, containerClasses) {
+      console.log(
+        `${paneIndex}. pane expanded. Pane class: '${paneClasses}' MultiSplitPane class: '${containerClasses}'`
+      )
     }
   }
 }

@@ -170,11 +170,11 @@ export default {
         if (iFrac === 0 && this.collapsedPanes[i] !== 1) {
           pane.classList.add('collapsed')
           this.collapsedPanes[i] = 1
-          this.$emit('onPaneCollapsed', i)
+          this.$emit('onPaneCollapsed', i, pane.classList, this.root.classList)
         } else if (iFrac !== 0 && this.collapsedPanes[i] === 1) {
           pane.classList.remove('collapsed')
           this.collapsedPanes[i] = 0
-          this.$emit('onPaneExpanded', i)
+          this.$emit('onPaneExpanded', i, pane.classList, this.root.classList)
         }
 
         pane.setAttribute('style', getStyleStr(iFrac))

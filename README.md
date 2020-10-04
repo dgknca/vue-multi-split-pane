@@ -25,11 +25,15 @@ export default {
     Pane
   },
   methods: {
-    onPaneCollapsed(index) {
-      console.log('onPaneCollapsed', index)
+    onPaneCollapsed(paneIndex, paneClass, containerClass) {
+      console.log(
+        `${paneIndex}. pane collapsed. Pane class: '${paneClass}' MultiSplitPane class: '${containerClass}'`
+      )
     },
-    onPaneExpanded(index) {
-      console.log('onPaneExpanded', index)
+    onPaneExpanded(paneIndex, paneClass, containerClass) {
+      console.log(
+        `${paneIndex}. pane expanded. Pane class: '${paneClass}' MultiSplitPane class: '${containerClass}'`
+      )
     }
   }
 }
@@ -79,10 +83,7 @@ export default {
 >
   <Pane>
     <template v-slot:content>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
-      excepturi in dolores accusantium praesentium quidem laborum neque ut ipsum
-      veritatis ratione rem, esse totam voluptates ullam nesciunt tempora
-      architecto laudantium!
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
     </template>
   </Pane>
   <Pane classes="paneNested">
@@ -95,17 +96,11 @@ export default {
         <Pane>
           <template v-slot:content>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur, excepturi in dolores accusantium praesentium quidem
-            laborum neque ut ipsum veritatis ratione rem, esse totam voluptates
-            ullam nesciunt tempora architecto laudantium!
           </template>
         </Pane>
         <Pane>
           <template v-slot:content>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur, excepturi in dolores accusantium praesentium quidem
-            laborum neque ut ipsum veritatis ratione rem, esse totam voluptates
-            ullam nesciunt tempora architecto laudantium!
           </template>
         </Pane>
       </MultiSplitPane>
@@ -127,7 +122,7 @@ export default {
 
 ## Events
 
-| Event                  | Description                                                         |
-| :--------------------- | :------------------------------------------------------------------ |
-| onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
-| onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
+| Event                                                 | Description                                                         |
+| :---------------------------------------------------- | :------------------------------------------------------------------ |
+| onPaneCollapsed(paneIndex, paneClass, containerClass) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
+| onPaneExpanded(paneIndex, paneClass, containerClass)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
