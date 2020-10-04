@@ -80,3 +80,7 @@ export default {
 | :--------------------- | :------------------------------------------------------------------ |
 | onPaneCollapsed(index) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
 | onPaneExpanded(index)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
+
+### Notes
+
+Doesn't support nested split.
