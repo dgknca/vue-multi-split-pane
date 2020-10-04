@@ -122,7 +122,7 @@ export default {
 
 ## Events
 
-| Event                                                 | Description                                                         |
-| :---------------------------------------------------- | :------------------------------------------------------------------ |
-| onPaneCollapsed(paneIndex, paneClass, containerClass) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
-| onPaneExpanded(paneIndex, paneClass, containerClass)  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
+| Event                                                    | Description                                                         |
+| :------------------------------------------------------- | :------------------------------------------------------------------ |
+| onPaneCollapsed ( paneIndex, paneClass, containerClass ) | Event will be fired when collapsed any pane. Used on MultiSplitPane |
+| onPaneExpanded ( paneIndex, paneClass, containerClass )  | Event will be fired when expanded any pane. Used on MultiSplitPane  |
