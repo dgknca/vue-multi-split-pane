@@ -1,11 +1,12 @@
 {
   "name": "vue-multi-split-pane",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Doğukan Çavuş",
-  "main": "index.js",
+  "main": "./dist/vue-multi-split-pane.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "bundle": "vue-cli-service build --mode production --dest dist --target lib --name vue-multi-split-pane index.js",
     "lint": "vue-cli-service lint"
   },
   "keywords": [
