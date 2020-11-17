@@ -124,7 +124,7 @@
 
 <script>
 import MultiSplitPane from './components/MultiSplitPane.vue'
-import Pane from './components/Pane'
+import Pane from './components/Pane.vue'
 
 export default {
   name: 'App',
