@@ -471,15 +471,10 @@ const __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$1
 }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, createInjector, undefined, undefined);
 
-/* eslint-disable import/prefer-default-export */
-var index = {
-  MultiSplitPane: __vue_component__,
-  Pane: __vue_component__$1
-};
-
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  'default': index
+  MultiSplitPane: __vue_component__,
+  Pane: __vue_component__$1
 });
 
 // Import vue components
@@ -498,3 +493,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
+export { __vue_component__ as MultiSplitPane, __vue_component__$1 as Pane };

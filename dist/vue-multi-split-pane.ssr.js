@@ -497,11 +497,7 @@ var __vue_is_functional_template__$1 = false;
 var __vue_component__$1 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$1,
   staticRenderFns: __vue_staticRenderFns__$1
-}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, createInjectorSSR, undefined);/* eslint-disable import/prefer-default-export */
-var index = {
-  MultiSplitPane: __vue_component__,
-  Pane: __vue_component__$1
-};var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': index});var install = function installVueMultiSplitPane(Vue) {
+}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, createInjectorSSR, undefined);var components=/*#__PURE__*/Object.freeze({__proto__:null,MultiSplitPane: __vue_component__,Pane: __vue_component__$1});var install = function installVueMultiSplitPane(Vue) {
   if (install.installed) return;
   install.installed = true;
   Object.entries(components).forEach(function (_ref) {
@@ -534,4 +530,4 @@ var plugin = {
     GlobalVue.use(plugin);
   }
 } // Default export is library as a whole, registered via Vue.use()
-exports.default=plugin;
+exports.MultiSplitPane=__vue_component__;exports.Pane=__vue_component__$1;exports.default=plugin;
