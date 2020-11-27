@@ -4,7 +4,7 @@ A component based on Vue.js. Provides unlimited resizable multi pane support.
 
 ## Demo
 
-[Live Demo](https://vue-multi-split-pane.vercel.app/) | [Codesandbox](https://codesandbox.io/s/vue-multi-split-pane-7noiu?file=/src/App.vue)
+[Live Demo](https://vue-multi-split-pane.vercel.app/) | [Codesandbox](https://codesandbox.io/s/vue-multi-split-pane-7noiu?file=/src/App.vue) | [JSFiddle](https://jsfiddle.net/t6fr8s0m/) | [Codepen](https://codepen.io/dgknca/pen/wvzvbGY)
 
 ### Install
 
