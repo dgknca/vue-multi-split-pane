@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+      body {
+        font-family: 'Fira Code', monospace;
+        background: #d8d1d9;
+      }
+
+      .v-pane-custom .v-pane .content {
+        background: #fff;
+      }
+      .v-pane-custom .content .innerContent {
+        padding: 20px;
+        line-height: 1.5;
+      }
+
+      .paneNested > .content > .innerContent {
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <multi-split-pane
+        split="horizontal"
+        height="400px"
+        width="1000px"
+        resizerWidth="30px"
+        classes="v-pane-custom"
+      >
+        <Pane>
+          <template v-slot:content>
+            Content 1
+          </template>
+        </Pane>
+        <Pane>
+          <template v-slot:content>
+            Content 2
+          </template>
+        </Pane>
+        <Pane>
+          <template v-slot:content>
+            Content 3
+          </template>
+        </Pane>
+      </multi-split-pane>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./dist/vue-multi-split-pane.min.js"></script>
+    <script>
+      console.log(VueMultiSplitPane)
+
+      Vue.component('MultiSplitPane', VueMultiSplitPane.MultiSplitPane)
+      Vue.component('Pane', VueMultiSplitPane.Pane)
+      new Vue({
+        el: '#app'
+        // components: {
+        //   MultiSplitPane: VueMultiSplitPane.MultiSplitPane,
+        //   Pane: VueMultiSplitPane.Pane
+        // }
+      })
+    </script>
+  </body>
+</html>
