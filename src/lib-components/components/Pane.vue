@@ -1,5 +1,9 @@
 <template>
-  <div class="v-pane" :class="classes">
+  <div
+    class="v-pane"
+    :class="classes"
+    :style="{ width: width, height: height }"
+  >
     <div class="v-resizer" data-resizer="data-resizer">
       <slot name="resizer"></slot>
     </div>
@@ -15,9 +19,25 @@
 export default {
   name: 'Pane',
   props: {
+    initWidth: {
+      type: String
+    },
+    initHeight: {
+      type: String
+    },
     classes: {
       type: String
     }
+  },
+  data() {
+    return {
+      width: undefined,
+      height: undefined
+    }
+  },
+  mounted() {
+    this.width = this.initWidth
+    this.height = this.initHeight
   }
 }
 </script>

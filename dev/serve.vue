@@ -1,5 +1,3 @@
-
-
 <template>
   <div id="app">
     <MultiSplitPane
@@ -40,12 +38,33 @@
     <div style="margin-top:50px"></div>
 
     <MultiSplitPane
+      split="horizontal"
       height="400px"
       width="1000px"
+      resizerWidth="30px"
       classes="v-pane-custom"
-      @onPaneCollapsed="onPaneCollapsed"
-      @onPaneExpanded="onPaneExpanded"
     >
+      <Pane initWidth="75%">
+        <template v-slot:content>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          excepturi in dolores accusantium praesentium quidem laborum neque ut
+          ipsum veritatis ratione rem, esse totam voluptates ullam nesciunt
+          tempora architecto laudantium!
+        </template>
+      </Pane>
+      <Pane initWidth="25%">
+        <template v-slot:content>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          excepturi in dolores accusantium praesentium quidem laborum neque ut
+          ipsum veritatis ratione rem, esse totam voluptates ullam nesciunt
+          tempora architecto laudantium!
+        </template>
+      </Pane>
+    </MultiSplitPane>
+
+    <div style="margin-top:50px"></div>
+
+    <MultiSplitPane height="400px" width="1000px" classes="v-pane-custom">
       <Pane>
         <template v-slot:content>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
@@ -63,6 +82,27 @@
         </template>
       </Pane>
       <Pane>
+        <template v-slot:content>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          excepturi in dolores accusantium praesentium quidem laborum neque ut
+          ipsum veritatis ratione rem, esse totam voluptates ullam nesciunt
+          tempora architecto laudantium!
+        </template>
+      </Pane>
+    </MultiSplitPane>
+
+    <div style="margin-top:50px"></div>
+
+    <MultiSplitPane height="400px" width="1000px" classes="v-pane-custom">
+      <Pane initHeight="75%">
+        <template v-slot:content>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          excepturi in dolores accusantium praesentium quidem laborum neque ut
+          ipsum veritatis ratione rem, esse totam voluptates ullam nesciunt
+          tempora architecto laudantium!
+        </template>
+      </Pane>
+      <Pane initHeight="25%">
         <template v-slot:content>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
           excepturi in dolores accusantium praesentium quidem laborum neque ut
@@ -124,7 +164,7 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
+import Vue from 'vue'
 import { MultiSplitPane, Pane } from '@/entry'
 
 export default {
@@ -145,7 +185,7 @@ export default {
       )
     }
   }
-};
+}
 </script>
 
 <style>
